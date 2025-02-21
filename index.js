@@ -5,6 +5,11 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// Root route
+app.get("/", (req, res) => {
+    res.status(200).json({ message: "Welcome to BFHL API! Use /bfhl for requests." });
+});
+
 // GET /bfhl - Returns operation_code
 app.get("/bfhl", (req, res) => {
     res.status(200).json({ operation_code: 1 });
@@ -13,12 +18,13 @@ app.get("/bfhl", (req, res) => {
 // POST /bfhl - Process input data
 app.post("/bfhl", (req, res) => {
     const { data } = req.body;
-    
+
+    // Input validation
     if (!data || !Array.isArray(data)) {
-        return res.status(400).json({ is_success: false, message: "Invalid input" });
+        return res.status(400).json({ is_success: false, message: "Invalid input. 'data' must be an array." });
     }
 
-    const user_id = "ravneet_singh_21022025";  // Change with your details
+    const user_id = "ravneet_singh_21022025";  // Change this to your details
     const email = "your-email@cuchd.in";
     const roll_number = "21BCSXXXX";
 
@@ -37,8 +43,5 @@ app.post("/bfhl", (req, res) => {
     });
 });
 
-// Start Server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+// ✅ Export the app for Vercel (DO NOT use app.listen())
+module.exports = app;
