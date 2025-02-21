@@ -23,7 +23,7 @@ app.post("/bfhl", (req, res) => {
         return res.status(400).json({ is_success: false, message: "Invalid input. 'data' must be an array." });
     }
 
-    const user_id = "ravneet_singh";  // Change this to your details
+    const user_id = "ravneet_singh"; 
     const email = "22bcs15231@cuchd.in";
     const roll_number = "22BCS15231";
 
