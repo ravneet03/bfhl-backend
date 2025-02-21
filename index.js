@@ -23,9 +23,9 @@ app.post("/bfhl", (req, res) => {
         return res.status(400).json({ is_success: false, message: "Invalid input. 'data' must be an array." });
     }
 
-    const user_id = "ravneet_singh_21022025";  // Change this to your details
-    const email = "your-email@cuchd.in";
-    const roll_number = "21BCSXXXX";
+    const user_id = "ravneet_singh";  // Change this to your details
+    const email = "22bcs15231@cuchd.in";
+    const roll_number = "22BCS15231";
 
     const numbers = data.filter(x => !isNaN(x));
     const alphabets = data.filter(x => /^[a-zA-Z]$/.test(x));
