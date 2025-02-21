@@ -19,7 +19,6 @@ app.get("/bfhl", (req, res) => {
 app.post("/bfhl", (req, res) => {
     const { data } = req.body;
 
-    // Input validation
     if (!data || !Array.isArray(data)) {
         return res.status(400).json({ is_success: false, message: "Invalid input. 'data' must be an array." });
     }
